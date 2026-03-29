@@ -83,7 +83,9 @@
   <div class="min-h-screen">
     <header class="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-xl">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a href="#top" class="text-lg font-extrabold tracking-tight text-ink">Qinan Zhang<span class="text-clay">.</span></a>
+        <a href="#top" class="text-lg font-extrabold tracking-tight text-ink">
+          <span x-text="lang === 'zh' ? (site.profile.nameZh || '张启楠') : (site.profile.name || 'Qinan Zhang')"></span><span class="text-clay">.</span>
+        </a>
         <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
           <template x-for="item in navItems" :key="item.id">
             <a :href="'#' + item.id" class="transition hover:text-clay" x-text="label(item.label)"></a>
@@ -122,8 +124,8 @@
             </div>
 
             <div class="flex flex-wrap gap-3">
-              <a :href="site.links.cvEn" class="rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800" x-text="label('downloadCvEn')"></a>
-              <a :href="site.links.cvZh" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay" x-text="label('downloadCvZh')"></a>
+              <a :href="assetUrl(site.links.cvEn)" class="rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800" x-text="label('downloadCvEn')"></a>
+              <a :href="assetUrl(site.links.cvZh)" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay" x-text="label('downloadCvZh')"></a>
               <a :href="site.links.github" target="_blank" rel="noreferrer" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay">GitHub</a>
               <a :href="'mailto:' + site.email" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay" x-text="label('email')"></a>
             </div>
@@ -152,7 +154,7 @@
             <div class="absolute bottom-8 right-2 h-28 w-28 rounded-full bg-accent-soft blur-2xl"></div>
             <div class="glass relative w-full max-w-md rounded-[2rem] p-4 shadow-soft">
               <div class="overflow-hidden rounded-[1.6rem] border border-white/40">
-                <img src="./top.png" alt="Qinan Zhang" class="aspect-[4/5] w-full object-cover" loading="lazy" />
+                <img :src="assetUrl('./top.png')" alt="Qinan Zhang" class="aspect-[4/5] w-full object-cover" loading="lazy" />
               </div>
               <div class="mt-4 space-y-3 rounded-[1.4rem] bg-white/80 p-5">
                 <div class="flex flex-wrap gap-2">
@@ -310,7 +312,7 @@
           <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <a :href="'mailto:' + site.email" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1">
               <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Email</div>
-              <div class="mt-2 text-base font-extrabold text-ink" x-text="site.email"></div>
+              <div class="mt-2 break-all text-sm font-extrabold text-ink md:text-base" x-text="site.email"></div>
             </a>
             <div class="rounded-3xl border border-black/10 bg-white/80 p-5">
               <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500" x-text="label('phone')"></div>
@@ -403,6 +405,11 @@
         },
         projectSummary(project) {
           return this.lang === 'zh' ? project.summaryZh : project.summaryEn;
+        },
+        assetUrl(path) {
+          if (!path) return '';
+          const version = this.site.assetVersion || '1';
+          return path.includes('?') ? path : `${path}?v=${version}`;
         }
       }
     }

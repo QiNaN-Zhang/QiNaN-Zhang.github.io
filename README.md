@@ -1,31 +1,15 @@
-﻿# Qinan Zhang Personal Website
+# Qinan Zhang
 
-This folder is prepared as a GitHub Pages user-site repository for `QiNaN-Zhang.github.io`.
+M.Eng. student at the University of Science and Technology of China, working on robotics, embodied AI, vision-language navigation, world models, and multimodal intelligence for real-world robotic systems.
 
-## Included
+## Highlights
 
-- Bilingual single-page homepage (`index.html`)
-- Content files in `data/`
-- Downloadable Chinese and English CV files
-- `robots.txt` and `sitemap.xml` adjusted for the new Pages URL
+- Research interests: Embodied AI, VLN, world models, multimodal AI, simulation-to-real systems
+- Current focus: navigation benchmarks, embodied evaluation, 3D scene representation, deployable robot intelligence
+- Looking for: research internships and collaborative research opportunities
 
-## Main files
+## Links
 
-- `index.html`: page layout and interactive language switch
-- `data/site-data.json`: profile, education, internship, skills, contact
-- `data/i18n.json`: UI labels in English and Chinese
-- `data/publications.json`: featured research project cards
-
-## Publish to GitHub Pages
-
-1. Create a GitHub repository named exactly `QiNaN-Zhang.github.io`.
-2. Upload the contents of this folder to the repository root.
-3. Push to the `main` branch.
-4. In GitHub, open `Settings > Pages`.
-5. Set the source to `Deploy from a branch`.
-6. Select branch `main` and folder `/ (root)`.
-7. Wait for GitHub Pages to finish deployment.
-
-If your GitHub username is indeed `QiNaN-Zhang`, the site URL should be:
-
-`https://qinan-zhang.github.io/`
+- Website: [qinan-zhang.github.io](https://qinan-zhang.github.io/)
+- Email: qinanzhang@mail.ustc.edu.cn
+- GitHub: [QiNaN-Zhang](https://github.com/QiNaN-Zhang)
