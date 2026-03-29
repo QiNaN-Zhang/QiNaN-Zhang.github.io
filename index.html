@@ -309,10 +309,10 @@
               <p class="mt-3 text-lg font-semibold leading-8" x-text="hero().availabilityBody"></p>
             </div>
           </div>
-          <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <a :href="'mailto:' + site.email" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1">
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <a :href="'mailto:' + site.email" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1 md:col-span-2">
               <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Email</div>
-              <div class="mt-2 break-all text-sm font-extrabold text-ink md:text-base" x-text="site.email"></div>
+              <div class="mt-2 text-base font-extrabold text-ink" x-text="site.email"></div>
             </a>
             <div class="rounded-3xl border border-black/10 bg-white/80 p-5">
               <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500" x-text="label('phone')"></div>
@@ -369,10 +369,11 @@
           { id: 'contact', label: 'contact' }
         ],
         async init() {
+          const version = '20260329b';
           const [labels, site, projects] = await Promise.all([
-            fetch('./data/i18n.json').then(r => r.json()),
-            fetch('./data/site-data.json').then(r => r.json()),
-            fetch('./data/publications.json').then(r => r.json())
+            fetch(`./data/i18n.json?v=${version}`, { cache: 'no-store' }).then(r => r.json()),
+            fetch(`./data/site-data.json?v=${version}`, { cache: 'no-store' }).then(r => r.json()),
+            fetch(`./data/publications.json?v=${version}`, { cache: 'no-store' }).then(r => r.json())
           ]);
           this.labels = labels;
           this.site = site;
