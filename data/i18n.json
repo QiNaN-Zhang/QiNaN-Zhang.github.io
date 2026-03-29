@@ -1,0 +1,42 @@
+﻿{
+  "en": {
+    "about": "About",
+    "research": "Research",
+    "education": "Education",
+    "internship": "Internship",
+    "skills": "Skills",
+    "contact": "Contact",
+    "sectionTag": "Profile",
+    "downloadCvEn": "Download CV (EN)",
+    "downloadCvZh": "Download CV (ZH)",
+    "email": "Email",
+    "focus": "Focus",
+    "degree": "Degree",
+    "status": "Status",
+    "researchIntro": "Selected projects that best represent my current research direction and technical interests.",
+    "highlights": "Highlights",
+    "availabilityNow": "Current Availability",
+    "phone": "Phone",
+    "footer": "Built for GitHub Pages as a bilingual personal academic homepage."
+  },
+  "zh": {
+    "about": "个人简介",
+    "research": "科研项目",
+    "education": "教育背景",
+    "internship": "实习经历",
+    "skills": "技能",
+    "contact": "联系方式",
+    "sectionTag": "个人主页",
+    "downloadCvEn": "下载英文简历",
+    "downloadCvZh": "下载中文简历",
+    "email": "邮件联系",
+    "focus": "研究聚焦",
+    "degree": "学位",
+    "status": "当前状态",
+    "researchIntro": "以下项目代表了我当前最核心的研究方向与技术兴趣。",
+    "highlights": "补充信息",
+    "availabilityNow": "当前开放情况",
+    "phone": "电话",
+    "footer": "这是一个面向 GitHub Pages 的中英文双语个人学术主页。"
+  }
+}

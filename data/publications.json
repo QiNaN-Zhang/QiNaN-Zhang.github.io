@@ -1,0 +1,74 @@
+﻿[
+  {
+    "slug": "metropolisworld",
+    "labelEn": "Featured Project",
+    "labelZh": "代表项目",
+    "titleEn": "MetropolisWorld: Physically-Executable R2S2R Benchmark for Embodied Robot Tasks",
+    "titleZh": "MetropolisWorld：面向多类型机器人具身导航任务的 Real-to-Sim-to-Real 评测基准",
+    "statusEn": "v1.0 release in preparation",
+    "statusZh": "v1.0 即将开源并投稿",
+    "summaryEn": [
+      "Building a Real-to-Sim-to-Real benchmark for embodied navigation with an Isaac Sim and UE5 pipeline, featuring high-rise urban scenes and multi-robot support.",
+      "Established an automated air-ground data fusion and reconstruction pipeline to generate photo-realistic 3DGS scenes and simulation-ready assets."
+    ],
+    "summaryZh": [
+      "基于 Isaac Sim 与 UE5 构建面向具身导航任务的 R2S2R 评测基准，聚焦高层城市场景，并支持无人机、无人车等多类型机器人。",
+      "构建了自动化空地协同数据采集与融合重建流程，可生成高保真 3DGS 场景与训练和评测所需仿真资产。"
+    ],
+    "tags": ["Embodied AI", "VLN", "Isaac Sim", "3DGS", "R2S2R"]
+  },
+  {
+    "slug": "gridwm-judge",
+    "labelEn": "Featured Project",
+    "labelZh": "代表项目",
+    "titleEn": "GridWM-Judge: Evaluating VLM Judges in Grid Worlds via World Model Deficits",
+    "titleZh": "GridWM-Judge：基于世界模型缺陷的网格世界 VLM Judge 评测基准",
+    "statusEn": "ICLR 2026 (accepted)",
+    "statusZh": "ICLR 2026（已接收）",
+    "summaryEn": [
+      "Built a diagnostic benchmark on deterministic MiniGrid environments to probe the robustness of VLM-as-a-Judge under controlled, semantics-preserving interventions.",
+      "Designed three tasks and multiple metrics, and evaluated 13 VLMs to reveal that stronger transition prediction does not necessarily yield more stable judgments."
+    ],
+    "summaryZh": [
+      "在 6 个确定性 MiniGrid 环境中构建诊断型评测基准，用于分析 VLM-as-a-Judge 在受控且保持语义不变干预下的稳健性。",
+      "设计了三类任务与多项评测指标，并在 13 种主流 VLM 上开展系统实验，揭示更强的状态转移预测能力并不必然带来更稳定的判断。"
+    ],
+    "tags": ["VLM Judge", "Benchmark", "World Models", "MiniGrid"]
+  },
+  {
+    "slug": "auditnav",
+    "labelEn": "Featured Project",
+    "labelZh": "代表项目",
+    "titleEn": "AuditNav: VLM-Audited Navigation with Dynamic Memory and Open-Vocabulary Adaptation",
+    "titleZh": "AuditNav：面向动态室内环境的 VLM Audit 分层具身导航框架",
+    "statusEn": "IROS 2026 (under review)",
+    "statusZh": "IROS 2026（审稿中）",
+    "summaryEn": [
+      "Proposed a hierarchical embodied navigation framework for sequential object-oriented navigation in dynamic indoor environments.",
+      "Designed a VLM-audited semantic memory and a region-adaptive spatial gating mechanism, with strong results in both Isaac Sim and real-world trials."
+    ],
+    "summaryZh": [
+      "提出面向动态室内环境中顺序目标导航的分层具身导航框架，将异步全局语义推理与高频局部反应式控制解耦。",
+      "设计了基于 VLM 审计的动态语义记忆与区域自适应空间门控机制，在 Isaac Sim 与真实场景中均取得较好表现。"
+    ],
+    "tags": ["Embodied Navigation", "VLM", "Dynamic Memory", "Open-Vocabulary"]
+  },
+  {
+    "slug": "coversafe",
+    "labelEn": "Featured Project",
+    "labelZh": "代表项目",
+    "titleEn": "CoverSafe: Safety-Aware Coverage Planning for UAV Inspection of Substations",
+    "titleZh": "CoverSafe：面向变电站无人机巡检的安全感知覆盖规划框架",
+    "statusEn": "IROS 2026 (under review)",
+    "statusZh": "IROS 2026（审稿中）",
+    "summaryEn": [
+      "Proposed a safety-aware viewpoint-guided framework that converts substation point clouds and device labels into executable UAV inspection missions.",
+      "Validated the system in both simulation and real-world settings with strong efficiency and coverage improvements, including deployment verification in a State Grid scenario."
+    ],
+    "summaryZh": [
+      "提出面向变电站无人机巡检的安全感知视点引导框架，可将设备点云与类别标注转化为可执行的自主巡检任务。",
+      "在仿真与真实场景中验证了系统在效率与覆盖率上的提升，并已在国家电网相关场景完成部署验证。"
+    ],
+    "tags": ["UAV Inspection", "Coverage Planning", "Safety-Aware Planning", "Robotics"]
+  }
+]
