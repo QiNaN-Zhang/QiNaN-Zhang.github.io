@@ -131,8 +131,8 @@
     {
       "titleEn": "ML / Vision / Multimodal",
       "titleZh": "机器学习与多模态",
-      "itemsEn": "PyTorch, model training and evaluation, VLA, VLN, ablation study, reproducibility",
-      "itemsZh": "PyTorch、模型训练与评测、VLA、VLN、消融分析、结果复现"
+      "itemsEn": "PyTorch, model training and evaluation, ablation study, reproducibility",
+      "itemsZh": "PyTorch、模型训练与评测、消融分析、结果复现"
     },
     {
       "titleEn": "Robotics / Simulation",
