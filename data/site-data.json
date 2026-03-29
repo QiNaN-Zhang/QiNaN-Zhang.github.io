@@ -1,4 +1,5 @@
 ﻿{
+  "assetVersion": "20260329",
   "profile": {
     "name": "Qinan Zhang",
     "nameZh": "张启楠",
@@ -18,7 +19,7 @@
   "hero": {
     "en": {
       "badge": "Embodied AI · Robotics · Multimodal AI",
-      "headline": "M.Eng. Student at USTC working on robotics, embodied AI, vision-language navigation, and world-model-driven intelligence.",
+      "headline": "M.Eng. Student at USTC working on robotics, embodied AI, vision-language navigation, and world models.",
       "intro": "I focus on connecting multimodal perception, spatial reasoning, and decision-making with real or high-fidelity simulated robotic systems, especially for navigation, embodied evaluation, and deployable robot intelligence.",
       "availabilityTitle": "Open",
       "availabilityBody": "Available for research internships and collaborative research opportunities.",
@@ -28,7 +29,7 @@
     },
     "zh": {
       "badge": "具身智能 · 机器人 · 多模态 AI",
-      "headline": "中国科学技术大学硕士生，研究方向涵盖机器人、具身智能、视觉语言导航与世界模型驱动智能。",
+      "headline": "中国科学技术大学硕士生，研究方向涵盖机器人、具身智能、视觉语言导航与世界模型。",
       "intro": "我关注如何将多模态感知、空间推理与决策能力落到真实或高保真仿真机器人系统中，尤其聚焦导航、具身评测与可部署的机器人智能。",
       "availabilityTitle": "开放中",
       "availabilityBody": "正在寻找高质量研究型实习与科研合作机会。",
@@ -130,14 +131,14 @@
     {
       "titleEn": "ML / Vision / Multimodal",
       "titleZh": "机器学习与多模态",
-      "itemsEn": "PyTorch, model training and evaluation, ablation study, reproducibility",
-      "itemsZh": "PyTorch、模型训练与评测、消融分析、结果复现"
+      "itemsEn": "PyTorch, model training and evaluation, VLA, VLN, ablation study, reproducibility",
+      "itemsZh": "PyTorch、模型训练与评测、VLA、VLN、消融分析、结果复现"
     },
     {
       "titleEn": "Robotics / Simulation",
       "titleZh": "机器人与仿真",
-      "itemsEn": "Isaac Sim, Isaac Lab, Unreal Engine, PyBullet, Gazebo, A*, RRT",
-      "itemsZh": "Isaac Sim、Isaac Lab、Unreal Engine、PyBullet、Gazebo、A*、RRT"
+      "itemsEn": "Isaac Sim, Isaac Lab, Unreal Engine, PyBullet, Gazebo",
+      "itemsZh": "Isaac Sim、Isaac Lab、Unreal Engine、PyBullet、Gazebo"
     },
     {
       "titleEn": "3D / Data Pipeline",
