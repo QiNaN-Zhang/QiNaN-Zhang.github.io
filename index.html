@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qinan Zhang | Robotics, Embodied AI, VLN, and Multimodal AI</title>
+  <meta name="description" content="Qinan Zhang is an M.Eng. student at USTC working on robotics, embodied AI, world models, vision-language navigation, and multimodal AI." />
+  <meta name="keywords" content="Qinan Zhang, USTC, robotics, embodied AI, VLN, multimodal AI, world models, Isaac Sim, UAV" />
+  <meta name="author" content="Qinan Zhang" />
+  <meta name="theme-color" content="#f3efe5" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qinan-zhang.github.io/" />
+  <meta property="og:title" content="Qinan Zhang | Personal Website" />
+  <meta property="og:description" content="Personal academic website of Qinan Zhang." />
+  <meta property="og:image" content="https://qinan-zhang.github.io/top.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Qinan Zhang | Personal Website" />
+  <meta property="twitter:description" content="Personal academic website of Qinan Zhang." />
+  <meta property="twitter:image" content="https://qinan-zhang.github.io/top.png" />
+  <link rel="canonical" href="https://qinan-zhang.github.io/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#f3efe5',
+            ink: '#1f2937',
+            clay: '#8f5b3e',
+            moss: '#4b6358',
+            copper: '#b77439'
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(31, 41, 55, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #f8f5ef;
+      --card: rgba(255,255,255,0.82);
+      --line: rgba(31,41,55,0.12);
+      --text: #1f2937;
+      --muted: #5b6472;
+      --accent: #8f5b3e;
+      --accent-soft: #ead9c4;
+      --highlight: #d6e0d8;
+    }
+    html, body {
+      font-family: Manrope, 'Noto Sans SC', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(143,91,62,0.10), transparent 24%),
+        radial-gradient(circle at top right, rgba(75,99,88,0.16), transparent 28%),
+        linear-gradient(180deg, #fbf9f5 0%, #f4efe6 100%);
+      color: var(--text);
+    }
+    .font-zh {
+      font-family: 'Noto Sans SC', Manrope, sans-serif;
+    }
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line);
+    }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(31,41,55,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,41,55,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    [x-cloak] { display: none !important; }
+  </style>
+</head>
+<body x-data="siteApp()" x-init="init()" :class="lang === 'zh' ? 'font-zh' : ''">
+  <div class="min-h-screen">
+    <header class="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#top" class="text-lg font-extrabold tracking-tight text-ink">Qinan Zhang<span class="text-clay">.</span></a>
+        <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
+          <template x-for="item in navItems" :key="item.id">
+            <a :href="'#' + item.id" class="transition hover:text-clay" x-text="label(item.label)"></a>
+          </template>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button @click="toggleLang()" class="rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-clay hover:text-clay" x-text="lang === 'en' ? '中文' : 'EN'"></button>
+          <button @click="mobileOpen = !mobileOpen" class="rounded-full border border-black/10 bg-white p-2 text-slate-700 md:hidden" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+        </div>
+      </div>
+      <div x-show="mobileOpen" x-transition x-cloak class="border-t border-black/5 bg-white/95 px-4 py-3 md:hidden">
+        <nav class="flex flex-col gap-3 text-sm font-semibold text-slate-700">
+          <template x-for="item in navItems" :key="item.id">
+            <a :href="'#' + item.id" @click="mobileOpen = false" x-text="label(item.label)"></a>
+          </template>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="top" class="relative overflow-hidden">
+        <div class="absolute inset-0 grid-pattern opacity-60"></div>
+        <div class="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.15fr_0.85fr] md:py-24">
+          <div class="space-y-7">
+            <div class="inline-flex items-center rounded-full border border-clay/20 bg-clay/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-clay" x-text="hero().badge"></div>
+            <div class="space-y-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.28em] text-moss" x-text="site.profile.affiliation"></p>
+              <div>
+                <h1 class="text-5xl font-extrabold leading-tight text-ink md:text-6xl" x-text="site.profile.name"></h1>
+                <p class="mt-3 text-2xl font-bold text-clay" x-text="site.profile.nameZh"></p>
+              </div>
+              <p class="max-w-3xl text-xl font-semibold leading-9 text-slate-800 md:text-2xl" x-text="hero().headline"></p>
+              <p class="max-w-3xl text-base leading-8 text-slate-600 md:text-lg" x-text="hero().intro"></p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <a :href="site.links.cvEn" class="rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800" x-text="label('downloadCvEn')"></a>
+              <a :href="site.links.cvZh" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay" x-text="label('downloadCvZh')"></a>
+              <a :href="site.links.github" target="_blank" rel="noreferrer" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay">GitHub</a>
+              <a :href="'mailto:' + site.email" class="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-700 transition hover:border-clay hover:text-clay" x-text="label('email')"></a>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="glass rounded-3xl p-5 shadow-soft">
+                <div class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" x-text="label('focus')"></div>
+                <div class="mt-2 text-lg font-extrabold text-ink">Embodied AI</div>
+                <div class="text-sm text-slate-600">Robotics · World Models · VLN</div>
+              </div>
+              <div class="glass rounded-3xl p-5 shadow-soft">
+                <div class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" x-text="label('degree')"></div>
+                <div class="mt-2 text-lg font-extrabold text-ink">M.Eng.</div>
+                <div class="text-sm text-slate-600">USTC · 2024-2027</div>
+              </div>
+              <div class="glass rounded-3xl p-5 shadow-soft">
+                <div class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" x-text="label('status')"></div>
+                <div class="mt-2 text-lg font-extrabold text-ink" x-text="hero().availabilityTitle"></div>
+                <div class="text-sm text-slate-600" x-text="hero().availabilityBody"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative flex items-center justify-center">
+            <div class="absolute -left-4 top-10 h-24 w-24 rounded-full bg-highlight blur-2xl"></div>
+            <div class="absolute bottom-8 right-2 h-28 w-28 rounded-full bg-accent-soft blur-2xl"></div>
+            <div class="glass relative w-full max-w-md rounded-[2rem] p-4 shadow-soft">
+              <div class="overflow-hidden rounded-[1.6rem] border border-white/40">
+                <img src="./top.png" alt="Qinan Zhang" class="aspect-[4/5] w-full object-cover" loading="lazy" />
+              </div>
+              <div class="mt-4 space-y-3 rounded-[1.4rem] bg-white/80 p-5">
+                <div class="flex flex-wrap gap-2">
+                  <template x-for="tag in hero().keywords" :key="tag">
+                    <span class="rounded-full bg-sand px-3 py-1 text-xs font-bold text-slate-700" x-text="tag"></span>
+                  </template>
+                </div>
+                <p class="text-sm leading-7 text-slate-600" x-text="hero().caption"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <div class="glass rounded-[2rem] p-8 shadow-soft md:p-10">
+          <div class="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+              <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('about')"></h2>
+            </div>
+            <div class="hidden rounded-full bg-highlight px-4 py-2 text-sm font-semibold text-moss md:inline-flex" x-text="hero().availabilityChip"></div>
+          </div>
+          <div class="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="space-y-4 text-base leading-8 text-slate-600">
+              <template x-for="paragraph in aboutParagraphs()" :key="paragraph">
+                <p x-text="paragraph"></p>
+              </template>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <template x-for="item in site.quickFacts" :key="item.en">
+                <div class="rounded-3xl border border-black/10 bg-white/80 p-5">
+                  <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500" x-text="lang === 'zh' ? item.labelZh : item.labelEn"></div>
+                  <div class="mt-2 text-base font-extrabold text-ink" x-text="lang === 'zh' ? item.zh : item.en"></div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <div class="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+            <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('research')"></h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-slate-600" x-text="label('researchIntro')"></p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <template x-for="project in projects" :key="project.slug">
+            <article class="glass rounded-[2rem] p-7 shadow-soft transition duration-300 hover:-translate-y-1">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="rounded-full bg-clay/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-clay" x-text="projectStatus(project)"></span>
+                <span class="rounded-full bg-highlight px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-moss" x-text="projectLabel(project)"></span>
+              </div>
+              <h3 class="mt-4 text-2xl font-extrabold leading-9 text-ink" x-text="projectTitle(project)"></h3>
+              <div class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <template x-for="line in projectSummary(project)" :key="line">
+                  <p x-text="line"></p>
+                </template>
+              </div>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <template x-for="tag in project.tags" :key="tag">
+                  <span class="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700" x-text="tag"></span>
+                </template>
+              </div>
+            </article>
+          </template>
+        </div>
+      </section>
+
+      <section id="education" class="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <div class="mb-8">
+          <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+          <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('education')"></h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <div class="space-y-5">
+            <template x-for="item in site.education" :key="item.schoolEn">
+              <article class="glass rounded-[2rem] p-7 shadow-soft">
+                <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 class="text-2xl font-extrabold text-ink" x-text="lang === 'zh' ? item.schoolZh : item.schoolEn"></h3>
+                    <p class="mt-2 text-base font-semibold text-clay" x-text="lang === 'zh' ? item.degreeZh : item.degreeEn"></p>
+                    <p class="mt-2 text-sm leading-7 text-slate-600" x-text="lang === 'zh' ? item.notesZh : item.notesEn"></p>
+                  </div>
+                  <div class="rounded-2xl bg-white/90 px-4 py-3 text-sm font-bold text-slate-700" x-text="item.period"></div>
+                </div>
+              </article>
+            </template>
+          </div>
+          <div class="glass rounded-[2rem] p-7 shadow-soft">
+            <p class="text-sm font-bold uppercase tracking-[0.2em] text-slate-500" x-text="label('highlights')"></p>
+            <div class="mt-5 space-y-4">
+              <template x-for="item in site.educationHighlights" :key="item.en">
+                <div class="rounded-3xl border border-black/10 bg-white/80 p-5">
+                  <p class="text-base font-bold text-ink" x-text="lang === 'zh' ? item.zh : item.en"></p>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="internship" class="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <div class="mb-8">
+          <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+          <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('internship')"></h2>
+        </div>
+        <div class="glass rounded-[2rem] p-7 shadow-soft">
+          <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h3 class="text-2xl font-extrabold text-ink" x-text="lang === 'zh' ? site.internship.companyZh : site.internship.companyEn"></h3>
+              <p class="mt-2 text-base font-semibold text-clay" x-text="lang === 'zh' ? site.internship.roleZh : site.internship.roleEn"></p>
+            </div>
+            <div class="rounded-2xl bg-white/90 px-4 py-3 text-sm font-bold text-slate-700" x-text="site.internship.period"></div>
+          </div>
+          <div class="mt-5 space-y-3 text-sm leading-7 text-slate-600">
+            <template x-for="line in internshipSummary()" :key="line">
+              <p x-text="line"></p>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <div class="mb-8">
+          <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+          <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('skills')"></h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <template x-for="group in site.skills" :key="group.titleEn">
+            <article class="glass rounded-[2rem] p-7 shadow-soft">
+              <h3 class="text-xl font-extrabold text-ink" x-text="lang === 'zh' ? group.titleZh : group.titleEn"></h3>
+              <p class="mt-4 text-sm leading-7 text-slate-600" x-text="lang === 'zh' ? group.itemsZh : group.itemsEn"></p>
+            </article>
+          </template>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-6xl px-4 py-8 pb-16 md:py-12 md:pb-24">
+        <div class="glass rounded-[2rem] p-8 shadow-soft md:p-10">
+          <div class="grid gap-8 md:grid-cols-[1fr_0.95fr] md:items-end">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-[0.24em] text-clay" x-text="label('sectionTag')"></p>
+              <h2 class="mt-2 text-3xl font-extrabold text-ink" x-text="label('contact')"></h2>
+              <p class="mt-4 max-w-2xl text-base leading-8 text-slate-600" x-text="lang === 'zh' ? site.contactIntro.zh : site.contactIntro.en"></p>
+            </div>
+            <div class="rounded-[1.6rem] bg-ink px-6 py-6 text-white shadow-soft">
+              <div class="text-sm font-bold uppercase tracking-[0.2em] text-white/70" x-text="label('availabilityNow')"></div>
+              <p class="mt-3 text-lg font-semibold leading-8" x-text="hero().availabilityBody"></p>
+            </div>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <a :href="'mailto:' + site.email" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1">
+              <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Email</div>
+              <div class="mt-2 text-base font-extrabold text-ink" x-text="site.email"></div>
+            </a>
+            <div class="rounded-3xl border border-black/10 bg-white/80 p-5">
+              <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500" x-text="label('phone')"></div>
+              <div class="mt-2 text-base font-extrabold text-ink" x-text="site.phone"></div>
+            </div>
+            <template x-if="site.links.github">
+              <a :href="site.links.github" target="_blank" rel="noreferrer" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1">
+                <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">GitHub</div>
+                <div class="mt-2 text-base font-extrabold text-ink" x-text="site.links.githubLabel"></div>
+              </a>
+            </template>
+            <template x-if="site.links.linkedin">
+              <a :href="site.links.linkedin" target="_blank" rel="noreferrer" class="rounded-3xl border border-black/10 bg-white/80 p-5 transition hover:-translate-y-1">
+                <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">LinkedIn</div>
+                <div class="mt-2 text-base font-extrabold text-ink" x-text="site.links.linkedinLabel"></div>
+              </a>
+            </template>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-black/5 bg-white/60">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+        <p>© <span x-text="new Date().getFullYear()"></span> Qinan Zhang</p>
+        <p x-text="label('footer')"></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function siteApp() {
+      return {
+        lang: localStorage.getItem('site-lang') || 'en',
+        mobileOpen: false,
+        labels: { en: {}, zh: {} },
+        site: {
+          profile: {},
+          links: {},
+          education: [],
+          educationHighlights: [],
+          skills: [],
+          quickFacts: [],
+          contactIntro: { en: '', zh: '' },
+          internship: {}
+        },
+        projects: [],
+        navItems: [
+          { id: 'about', label: 'about' },
+          { id: 'research', label: 'research' },
+          { id: 'education', label: 'education' },
+          { id: 'internship', label: 'internship' },
+          { id: 'skills', label: 'skills' },
+          { id: 'contact', label: 'contact' }
+        ],
+        async init() {
+          const [labels, site, projects] = await Promise.all([
+            fetch('./data/i18n.json').then(r => r.json()),
+            fetch('./data/site-data.json').then(r => r.json()),
+            fetch('./data/publications.json').then(r => r.json())
+          ]);
+          this.labels = labels;
+          this.site = site;
+          this.projects = projects;
+        },
+        toggleLang() {
+          this.lang = this.lang === 'en' ? 'zh' : 'en';
+          localStorage.setItem('site-lang', this.lang);
+        },
+        label(key) {
+          return (this.labels[this.lang] && this.labels[this.lang][key]) || (this.labels.en && this.labels.en[key]) || key;
+        },
+        hero() {
+          return (this.site.hero && (this.site.hero[this.lang] || this.site.hero.en)) || {};
+        },
+        aboutParagraphs() {
+          return (this.site.about && (this.site.about[this.lang] || this.site.about.en)) || [];
+        },
+        internshipSummary() {
+          return (this.site.internship && (this.site.internship[this.lang] || this.site.internship.en)) || [];
+        },
+        projectTitle(project) {
+          return this.lang === 'zh' ? project.titleZh : project.titleEn;
+        },
+        projectStatus(project) {
+          return this.lang === 'zh' ? project.statusZh : project.statusEn;
+        },
+        projectLabel(project) {
+          return this.lang === 'zh' ? project.labelZh : project.labelEn;
+        },
+        projectSummary(project) {
+          return this.lang === 'zh' ? project.summaryZh : project.summaryEn;
+        }
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Qinan Zhang",
+    "alternateName": "张启楠",
+    "url": "https://qinan-zhang.github.io/",
+    "email": "qinanzhang@mail.ustc.edu.cn",
+    "jobTitle": "M.Eng. Student",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Science and Technology of China"
+    },
+    "sameAs": [
+      "https://github.com/QiNaN-Zhang"
+    ],
+    "knowsAbout": [
+      "Robotics",
+      "Embodied AI",
+      "World Models",
+      "Vision-Language Navigation",
+      "Multimodal AI",
+      "Isaac Sim",
+      "UAV Inspection"
+    ]
+  }
+  </script>
+</body>
+</html>
